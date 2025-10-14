@@ -17,6 +17,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0;
+  padding: 20px;
 }
 
 /* Animated ocean wave background */
@@ -25,58 +27,28 @@ body {
   50% { background-position: 100% 50%; }
 }
 
-/* Animated water droplets falling */
+/* Subtle water droplets overlay */
 body::before {
   content: '';
   position: fixed;
-  top: -100%;
-  left: 0;
-  width: 100%;
-  height: 200%;
-  background-image: 
-    radial-gradient(circle 3px at 10% 20%, rgba(255, 255, 255, 0.4), transparent),
-    radial-gradient(circle 2px at 80% 40%, rgba(255, 255, 255, 0.3), transparent),
-    radial-gradient(circle 4px at 30% 60%, rgba(255, 255, 255, 0.5), transparent),
-    radial-gradient(circle 2px at 60% 80%, rgba(255, 255, 255, 0.3), transparent),
-    radial-gradient(circle 3px at 90% 10%, rgba(255, 255, 255, 0.4), transparent),
-    radial-gradient(circle 2px at 40% 30%, rgba(255, 255, 255, 0.35), transparent),
-    radial-gradient(circle 3px at 70% 50%, rgba(255, 255, 255, 0.4), transparent),
-    radial-gradient(circle 2px at 20% 70%, rgba(255, 255, 255, 0.3), transparent);
-  background-size: 100% 100%;
-  animation: rainDrop 8s linear infinite;
-  pointer-events: none;
-  z-index: 1;
-}
-
-@keyframes rainDrop {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(100%); }
-}
-
-/* Floating bubbles animation */
-body::after {
-  content: '';
-  position: fixed;
-  bottom: -100px;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-image: 
-    radial-gradient(circle 20px at 15% 90%, rgba(16, 185, 129, 0.15), transparent),
-    radial-gradient(circle 15px at 35% 80%, rgba(251, 191, 36, 0.1), transparent),
-    radial-gradient(circle 25px at 55% 85%, rgba(59, 130, 246, 0.12), transparent),
-    radial-gradient(circle 18px at 75% 88%, rgba(16, 185, 129, 0.13), transparent),
-    radial-gradient(circle 22px at 85% 92%, rgba(251, 191, 36, 0.11), transparent);
-  animation: bubbleRise 15s ease-in infinite;
+    radial-gradient(circle 2px at 10% 20%, rgba(255, 255, 255, 0.2), transparent),
+    radial-gradient(circle 1px at 80% 40%, rgba(255, 255, 255, 0.15), transparent),
+    radial-gradient(circle 3px at 30% 60%, rgba(255, 255, 255, 0.25), transparent),
+    radial-gradient(circle 1px at 60% 80%, rgba(255, 255, 255, 0.15), transparent);
+  background-size: 200% 200%;
+  animation: dropletMove 15s linear infinite;
   pointer-events: none;
   z-index: 1;
 }
 
-@keyframes bubbleRise {
-  0% { transform: translateY(0); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { transform: translateY(-100vh); opacity: 0; }
+@keyframes dropletMove {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
 }
 
 .container-card {
@@ -88,7 +60,7 @@ body::after {
   padding: 0 20px;
 }
 
-/* Logo header section */
+/* Logo header section - STABLE */
 .logo-header {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95));
   backdrop-filter: blur(20px);
@@ -102,18 +74,6 @@ body::after {
   align-items: center;
   flex-wrap: wrap;
   gap: 20px;
-  animation: logoHeaderSlide 0.8s ease-out;
-}
-
-@keyframes logoHeaderSlide {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .logo-container {
@@ -131,7 +91,7 @@ body::after {
 }
 
 .logo-item:hover {
-  transform: scale(1.1) translateY(-5px);
+  transform: scale(1.05);
 }
 
 .logo-main {
@@ -139,12 +99,6 @@ body::after {
   background: linear-gradient(135deg, #3b82f6, #1e88e5);
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-  animation: logoPulse 3s ease-in-out infinite;
-}
-
-@keyframes logoPulse {
-  0%, 100% { box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); }
-  50% { box-shadow: 0 6px 25px rgba(59, 130, 246, 0.5); }
 }
 
 .logo-secondary {
@@ -179,24 +133,7 @@ body::after {
   display: flex;
   align-items: center;
   gap: 8px;
-  animation: badgeShine 3s ease-in-out infinite;
   white-space: nowrap;
-}
-
-.powered-by::before {
-  content: '⚡';
-  font-size: 16px;
-  animation: sparkle 2s ease-in-out infinite;
-}
-
-@keyframes sparkle {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.3); opacity: 0.7; }
-}
-
-@keyframes badgeShine {
-  0%, 100% { box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4); }
-  50% { box-shadow: 0 6px 25px rgba(251, 191, 36, 0.6); }
 }
 
 .brandscapers-logo {
@@ -206,65 +143,18 @@ body::after {
   opacity: 0.9;
 }
 
-/* Water tip floating badge */
-.water-tip {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: linear-gradient(135deg, #10b981, #059669);
-  color: white;
-  padding: 15px 20px;
-  border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
-  max-width: 280px;
-  z-index: 1000;
-  animation: tipFloat 3s ease-in-out infinite, tipFadeIn 0.5s ease;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-}
-
-.water-tip:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 35px rgba(16, 185, 129, 0.6);
-}
-
-@keyframes tipFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes tipFadeIn {
-  from { opacity: 0; transform: translateX(100px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-.water-tip::before {
-  content: '💧';
-  font-size: 24px;
-  margin-right: 10px;
-  animation: dropletPulse 2s ease-in-out infinite;
-  display: inline-block;
-}
-
-@keyframes dropletPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-}
-
-/* Card with animated water border */
+/* Card with stable layout */
 .card {
   border: none;
   border-radius: 0 0 2rem 2rem;
   background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(20px);
   position: relative;
-  overflow: visible;
+  overflow: hidden;
   box-shadow: 
-    0 0 0 4px rgba(59, 130, 246, 0.1),
     0 10px 40px rgba(0, 0, 0, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  animation: cardEntrance 0.6s ease-out;
+  transition: box-shadow 0.3s ease;
 }
 
 /* Wrapper for logo header + card */
@@ -277,8 +167,7 @@ body::after {
   position: absolute;
   inset: -4px;
   background: linear-gradient(45deg, 
-    #3b82f6, #10b981, #fbbf24, #3b82f6, 
-    #10b981, #fbbf24, #3b82f6);
+    #3b82f6, #10b981, #fbbf24, #3b82f6);
   background-size: 400% 400%;
   border-radius: 2rem;
   z-index: -1;
@@ -292,42 +181,10 @@ body::after {
   100% { background-position: 0% 50%; }
 }
 
-@keyframes cardEntrance {
-  from {
-    opacity: 0;
-    transform: translateY(50px) scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Water ripple effect on card */
-.card::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.03) 0%, transparent 70%);
-  animation: rippleEffect 4s ease-in-out infinite;
-  pointer-events: none;
-}
-
-@keyframes rippleEffect {
-  0%, 100% { transform: scale(1); opacity: 0; }
-  50% { transform: scale(1.5); opacity: 1; }
-}
-
-.card-wrapper:hover .card {
+.card:hover {
   box-shadow: 
-    0 0 0 4px rgba(59, 130, 246, 0.2),
-    0 15px 50px rgba(16, 185, 129, 0.3),
+    0 15px 50px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  transform: translateY(-5px);
-  transition: all 0.4s ease;
 }
 
 /* Back button styling */
@@ -345,109 +202,53 @@ body::after {
   box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
   transition: all 0.3s ease;
   margin-bottom: 20px;
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-back::before {
-  content: '←';
-  font-size: 20px;
-  animation: arrowBounce 1.5s ease-in-out infinite;
-}
-
-@keyframes arrowBounce {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(-5px); }
 }
 
 .btn-back:hover {
-  transform: translateX(-5px);
+  transform: translateX(-3px);
   box-shadow: 0 6px 25px rgba(99, 102, 241, 0.6);
   color: white;
 }
 
-.btn-back::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.6s ease, height 0.6s ease;
-}
-
-.btn-back:hover::after {
-  width: 300px;
-  height: 300px;
-}
-
-/* Form labels with water droplet icon */
+/* Form labels - STABLE */
 .form-label {
   font-weight: 600;
   color: #0a2463;
-  position: relative;
-  display: inline-block;
-  padding-left: 25px;
-  transition: color 0.3s ease;
+  margin-bottom: 0.5rem;
+  display: block;
 }
 
-.form-label::before {
-  content: '💧';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 16px;
-  animation: dropletWiggle 2s ease-in-out infinite;
-}
-
-@keyframes dropletWiggle {
-  0%, 100% { transform: translateY(-50%) rotate(0deg); }
-  25% { transform: translateY(-50%) rotate(-10deg); }
-  75% { transform: translateY(-50%) rotate(10deg); }
-}
-
-/* Inputs with wave animation */
+/* Inputs with stable layout */
 .form-control, .form-select {
   border-radius: 1rem;
-  border: 3px solid transparent;
-  background: linear-gradient(white, white) padding-box,
-              linear-gradient(135deg, #3b82f6, #10b981, #fbbf24) border-box;
-  transition: all 0.4s ease;
+  border: 2px solid #e2e8f0;
+  background: #ffffff;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
   position: relative;
+  z-index: 2;
 }
 
 .form-control:focus, .form-select:focus {
   outline: none;
-  transform: translateY(-3px);
+  border-color: #3b82f6;
   box-shadow: 
-    0 8px 25px rgba(59, 130, 246, 0.3),
-    0 0 0 6px rgba(16, 185, 129, 0.1);
-  animation: inputWave 0.6s ease;
-}
-
-@keyframes inputWave {
-  0%, 100% { border-color: transparent; }
-  50% { 
-    border-color: transparent;
-    box-shadow: 
-      0 8px 25px rgba(59, 130, 246, 0.5),
-      0 0 0 8px rgba(16, 185, 129, 0.15);
-  }
+    0 0 0 3px rgba(59, 130, 246, 0.1),
+    0 4px 12px rgba(59, 130, 246, 0.1);
+  background: #ffffff;
+  transform: none; /* Remove transform to prevent movement */
 }
 
 .form-control:hover, .form-select:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+  border-color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
 }
 
-/* Buttons with water splash effect */
+/* Buttons with stable hover effects */
 .btn-primary {
-  background: linear-gradient(135deg, #3b82f6 0%, #10b981 50%, #fbbf24 100%);
-  background-size: 200% 200%;
+  background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
   border: none;
   border-radius: 50px;
   padding: 14px 32px;
@@ -457,133 +258,46 @@ body::after {
   position: relative;
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
-  animation: gradientShift 3s ease infinite;
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-@keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-.btn-primary::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.6s ease, height 0.6s ease;
-}
-
-.btn-primary:hover::before {
-  width: 400px;
-  height: 400px;
 }
 
 .btn-primary:hover {
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 
-    0 10px 30px rgba(16, 185, 129, 0.6),
-    0 0 20px rgba(251, 191, 36, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
 }
 
-.btn-primary:active {
-  transform: translateY(-2px) scale(1.01);
-  animation: splashEffect 0.6s ease;
-}
-
-@keyframes splashEffect {
-  0% { box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4); }
-  50% { box-shadow: 0 0 40px rgba(16, 185, 129, 0.8), 0 0 60px rgba(251, 191, 36, 0.6); }
-  100% { box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4); }
-}
-
-/* List group items with water flow effect */
+/* List group items - STABLE layout */
 .list-group-item {
-  border: 3px solid transparent;
+  border: 2px solid #e2e8f0;
   border-radius: 1rem !important;
-  margin-bottom: 1rem;
-  background: linear-gradient(white, white) padding-box,
-              linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(16, 185, 129, 0.3), rgba(251, 191, 36, 0.3)) border-box;
+  margin-bottom: 0.75rem;
+  background: #ffffff;
+  padding: 1rem 1.25rem;
+  font-weight: 500;
+  color: #475569;
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  transition: all 0.4s ease;
   cursor: pointer;
-}
-
-.list-group-item::before {
-  content: '';
-  position: absolute;
-  left: -100%;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, 
-    transparent, 
-    rgba(59, 130, 246, 0.1), 
-    rgba(16, 185, 129, 0.1), 
-    rgba(251, 191, 36, 0.1),
-    transparent);
-  transition: left 0.6s ease;
-}
-
-.list-group-item:hover::before {
-  left: 100%;
-}
-
-.list-group-item::after {
-  content: '→';
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 24px;
-  background: linear-gradient(135deg, #3b82f6, #10b981);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  opacity: 0;
-  transition: all 0.3s ease;
-}
-
-.list-group-item:hover::after {
-  opacity: 1;
-  right: 15px;
+  text-decoration: none;
+  display: block;
 }
 
 .list-group-item:hover {
-  background: linear-gradient(90deg, 
-    rgba(59, 130, 246, 0.08), 
-    rgba(16, 185, 129, 0.08),
-    rgba(251, 191, 36, 0.08)) padding-box,
-    linear-gradient(135deg, #3b82f6, #10b981, #fbbf24) border-box;
-  transform: translateX(10px) scale(1.02);
-  box-shadow: 
-    0 8px 25px rgba(59, 130, 246, 0.3),
-    0 0 0 4px rgba(16, 185, 129, 0.1);
+  border-color: #3b82f6;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.15);
+  transform: none; /* Remove transform to prevent movement */
+  color: #475569;
+  text-decoration: none;
 }
 
-.list-group-item:active {
-  animation: pressWave 0.4s ease;
-}
-
-@keyframes pressWave {
-  0% { transform: translateX(10px) scale(1.02); }
-  50% { transform: translateX(10px) scale(0.98); }
-  100% { transform: translateX(10px) scale(1.02); }
-}
-
-/* Headings with animated gradient */
+/* Headings with stable layout */
 h1 {
-  background: linear-gradient(135deg, #0a2463, #3b82f6, #10b981, #fbbf24);
-  background-size: 300% 300%;
+  background: linear-gradient(135deg, #0a2463, #3b82f6, #10b981);
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -608,52 +322,26 @@ h1::after {
   transform: translateX(-50%);
   width: 100px;
   height: 4px;
-  background: linear-gradient(90deg, transparent, #3b82f6, #10b981, #fbbf24, transparent);
+  background: linear-gradient(90deg, #3b82f6, #10b981);
   border-radius: 2px;
-  animation: lineExpand 2s ease-in-out infinite;
-}
-
-@keyframes lineExpand {
-  0%, 100% { width: 100px; }
-  50% { width: 200px; }
 }
 
 h4, h6 {
   color: #0a2463;
-  position: relative;
-  padding-left: 15px;
+  font-weight: 600;
   margin-top: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-h4::before, h6::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 4px;
-  height: 80%;
-  background: linear-gradient(180deg, #3b82f6, #10b981, #fbbf24);
-  border-radius: 2px;
-  animation: barPulse 2s ease-in-out infinite;
-}
-
-@keyframes barPulse {
-  0%, 100% { height: 80%; opacity: 1; }
-  50% { height: 100%; opacity: 0.7; }
-}
-
-/* Checkbox / radio with water droplet */
+/* Checkbox / radio - STABLE */
 .form-check {
   margin-bottom: 0.75rem;
-  padding-left: 2rem;
-  position: relative;
 }
 
 .form-check-input {
-  width: 24px;
-  height: 24px;
-  border: 3px solid #3b82f6;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #3b82f6;
   transition: all 0.3s ease;
   cursor: pointer;
 }
@@ -661,61 +349,20 @@ h4::before, h6::before {
 .form-check-input:checked {
   background-color: #10b981;
   border-color: #10b981;
-  animation: checkSplash 0.5s ease;
-}
-
-@keyframes checkSplash {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.2); box-shadow: 0 0 20px rgba(16, 185, 129, 0.6); }
-  100% { transform: scale(1); }
 }
 
 .form-check-input:hover {
   border-color: #10b981;
-  box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
 }
 
-.form-check:hover {
-  transform: translateX(5px);
-  transition: transform 0.2s ease;
-}
-
-/* Alerts with animated border */
+/* Alerts with stable layout */
 .alert {
   border-radius: 1rem;
   padding: 1.25rem 1.5rem;
   margin-top: 1.5rem;
-  border: 3px solid;
+  border: 2px solid;
   position: relative;
   overflow: hidden;
-  animation: alertSlide 0.5s ease;
-}
-
-@keyframes alertSlide {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.alert::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  animation: alertShine 2s ease-in-out infinite;
-}
-
-@keyframes alertShine {
-  0% { left: -100%; }
-  50%, 100% { left: 100%; }
 }
 
 .alert-success {
@@ -724,56 +371,21 @@ h4::before, h6::before {
   color: #0a2463;
 }
 
-/* Animated horizontal rule */
+/* Horizontal rule */
 hr {
   border: none;
-  height: 3px;
-  background: linear-gradient(90deg, 
-    transparent, 
-    #3b82f6 20%, 
-    #10b981 50%, 
-    #fbbf24 80%, 
-    transparent);
+  height: 2px;
+  background: linear-gradient(90deg, #e2e8f0, #3b82f6, #10b981, #e2e8f0);
   margin: 2rem 0;
-  position: relative;
-  overflow: hidden;
-  border-radius: 2px;
+  border-radius: 1px;
 }
 
-hr::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
-  animation: hrFlow 3s linear infinite;
-}
-
-@keyframes hrFlow {
-  0% { left: -100%; }
-  100% { left: 100%; }
-}
-
-/* Water conservation tips text */
+/* Water conservation tips */
 .text-muted {
-  color: #1e3a8a !important;
+  color: #64748b !important;
   font-style: italic;
-  position: relative;
-  padding-left: 30px;
-}
-
-.text-muted::before {
-  content: '💡';
-  position: absolute;
-  left: 0;
-  animation: bulbGlow 2s ease-in-out infinite;
-}
-
-@keyframes bulbGlow {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.1); }
+  text-align: center;
+  display: block;
 }
 
 /* Footer branding */
@@ -786,6 +398,34 @@ hr::after {
   border-image: linear-gradient(90deg, #3b82f6, #10b981, #fbbf24) 1;
   text-align: center;
   margin-top: -1px;
+}
+
+/* Water tip floating badge */
+.water-tip {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+  max-width: 280px;
+  z-index: 1000;
+  animation: tipFloat 3s ease-in-out infinite;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.water-tip:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 35px rgba(16, 185, 129, 0.6);
+}
+
+@keyframes tipFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
 }
 
 /* Mobile adjustments */
@@ -817,6 +457,14 @@ hr::after {
   .brandscapers-logo {
     height: 18px;
   }
+  
+  .water-tip {
+    bottom: 20px;
+    right: 20px;
+    max-width: 220px;
+    padding: 12px 16px;
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -827,14 +475,6 @@ hr::after {
   
   .card, .logo-header {
     border-radius: 1.5rem;
-  }
-  
-  .water-tip {
-    bottom: 20px;
-    right: 20px;
-    max-width: 220px;
-    padding: 12px 16px;
-    font-size: 14px;
   }
   
   h1 {
@@ -875,300 +515,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Progress indicator for form */
-.progress-indicator {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 4px;
-  background: linear-gradient(90deg, #3b82f6, #10b981, #fbbf24);
-  z-index: 9999;
-  transition: width 0.3s ease;
-  box-shadow: 0 2px 10px rgba(59, 130, 246, 0.5);
-}
-
-/* Partnership badges */
-.partnership-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
-  padding: 8px 16px;
-  border-radius: 25px;
-  border: 2px solid transparent;
-  background-clip: padding-box;
-  position: relative;
-  font-size: 13px;
-  font-weight: 600;
-  color: #0a2463;
-  margin: 5px;
-  transition: all 0.3s ease;
-}
-
-.partnership-badge::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  background: linear-gradient(135deg, #3b82f6, #10b981, #fbbf24);
-  border-radius: 25px;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.partnership-badge:hover::before {
-  opacity: 1;
-}
-
-.partnership-badge:hover {
-  transform: scale(1.05);
-  color: white;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-/* Water wave separator */
-.wave-separator {
-  width: 100%;
-  height: 40px;
-  margin: 20px 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.wave-separator::before {
-  content: '';
-  position: absolute;
-  width: 200%;
-  height: 100%;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    rgba(59, 130, 246, 0.2) 25%,
-    rgba(16, 185, 129, 0.2) 50%,
-    rgba(251, 191, 36, 0.2) 75%,
-    transparent 100%);
-  animation: waveMove 8s linear infinite;
-}
-
-@keyframes waveMove {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
-}
-
-/* Info tooltip */
-.info-tooltip {
-  position: relative;
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  background: linear-gradient(135deg, #3b82f6, #10b981);
-  color: white;
-  border-radius: 50%;
-  text-align: center;
-  font-size: 12px;
-  font-weight: bold;
-  cursor: help;
-  line-height: 18px;
-  margin-left: 5px;
-  transition: all 0.3s ease;
-}
-
-.info-tooltip:hover {
-  transform: scale(1.2);
-  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.5);
-}
-
-/* Success checkmark animation */
-@keyframes checkmark {
-  0% {
-    height: 0;
-    width: 0;
-    opacity: 1;
-  }
-  20% {
-    height: 0;
-    width: 10px;
-    opacity: 1;
-  }
-  40% {
-    height: 20px;
-    width: 10px;
-    opacity: 1;
-  }
-  100% {
-    height: 20px;
-    width: 10px;
-    opacity: 1;
-  }
-}
-
-/* Loading water droplet spinner */
-.spinner-droplet {
-  width: 40px;
-  height: 40px;
-  position: relative;
-  margin: 20px auto;
-}
-
-.spinner-droplet::before {
-  content: '💧';
-  font-size: 40px;
-  position: absolute;
-  animation: dropletSpin 1.5s ease-in-out infinite;
-}
-
-@keyframes dropletSpin {
-  0%, 100% { transform: rotate(0deg) scale(1); }
-  50% { transform: rotate(180deg) scale(1.2); }
-}
-
-/* Section divider with icon */
-.section-divider {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin: 25px 0;
-  font-weight: 600;
-  color: #0a2463;
-}
-
-.section-divider::before,
-.section-divider::after {
-  content: '';
-  flex: 1;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #3b82f6, #10b981, transparent);
-}
-
-.section-divider span {
-  padding: 8px 20px;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
-  border-radius: 20px;
-  border: 2px solid rgba(59, 130, 246, 0.3);
-}
-
-/* Floating action button */
-.fab-help {
-  position: fixed;
-  bottom: 100px;
-  right: 30px;
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, #fbbf24, #f59e0b);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-  box-shadow: 0 6px 20px rgba(251, 191, 36, 0.5);
-  cursor: pointer;
-  z-index: 999;
-  transition: all 0.3s ease;
-  animation: fabPulse 2s ease-in-out infinite;
-}
-
-@keyframes fabPulse {
-  0%, 100% {
-    box-shadow: 0 6px 20px rgba(251, 191, 36, 0.5);
-  }
-  50% {
-    box-shadow: 0 8px 30px rgba(251, 191, 36, 0.7), 0 0 0 10px rgba(251, 191, 36, 0.1);
-  }
-}
-
-.fab-help:hover {
-  transform: scale(1.1) rotate(15deg);
-  box-shadow: 0 10px 35px rgba(251, 191, 36, 0.7);
-}
-
-.fab-help::before {
-  content: '❓';
-}
-
-/* Stats counter animation */
-@keyframes countUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.stat-number {
-  font-size: 36px;
-  font-weight: 800;
-  background: linear-gradient(135deg, #3b82f6, #10b981);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: countUp 0.8s ease-out;
-}
-
-/* Company logo showcase */
-.logo-showcase {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  padding: 20px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.3));
-  border-radius: 15px;
-  margin: 20px 0;
-}
-
-.logo-showcase-item {
-  position: relative;
-  padding: 15px;
-  transition: transform 0.3s ease;
-}
-
-.logo-showcase-item:hover {
-  transform: translateY(-8px);
-}
-
-.logo-showcase-item::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #3b82f6, #10b981, #fbbf24);
-  transition: width 0.3s ease;
-  border-radius: 2px;
-}
-
-.logo-showcase-item:hover::after {
-  width: 80%;
-}
-
-/* Testimonial card style */
-.testimonial-card {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(16, 185, 129, 0.05));
-  border: 2px solid transparent;
-  background-clip: padding-box;
-  border-radius: 15px;
-  padding: 20px;
-  position: relative;
-  margin: 20px 0;
-}
-
-.testimonial-card::before {
-  content: '"';
-  position: absolute;
-  top: -10px;
-  left: 20px;
-  font-size: 60px;
-  color: #3b82f6;
-  opacity: 0.2;
-  font-family: Georgia, serif;
-}
-
 /* Accessibility focus states */
 *:focus-visible {
   outline: 3px solid #10b981;
@@ -1189,7 +535,6 @@ button:focus-visible,
   }
   
   .water-tip,
-  .fab-help,
   .btn-back {
     display: none;
   }
@@ -1202,4 +547,57 @@ button:focus-visible,
     box-shadow: none;
     border: 1px solid #ddd;
   }
+}
+
+/* Enhanced form stability */
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.form-section {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  position: relative;
+  z-index: 2;
+}
+
+/* Stable animations that don't affect layout */
+.stable-hover {
+  transition: all 0.3s ease;
+}
+
+.stable-hover:hover {
+  filter: brightness(1.05);
+}
+
+/* Ensure no layout shifts */
+.form-control, .form-select, .btn, .list-group-item {
+  transform: none !important;
+}
+
+/* Fixed positioning for floating elements */
+.floating-element {
+  position: fixed;
+  z-index: 1000;
+}
+
+/* Stable card content */
+.card-body {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+}
+
+/* Remove any transforms that cause movement */
+.no-move {
+  transform: none !important;
+}
+
+.stable-transform {
+  transition: opacity 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
