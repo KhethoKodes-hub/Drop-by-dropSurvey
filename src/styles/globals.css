@@ -1,4 +1,11 @@
 /* --- Global Form Styles with Water Theme --- */
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 body {
   background: linear-gradient(135deg, 
     #0a2463 0%, 
