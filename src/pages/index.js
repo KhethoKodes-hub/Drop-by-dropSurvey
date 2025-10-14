@@ -121,32 +121,40 @@ export default function Home() {
               }}
             ></div>
 
-            <div className="position-relative d-flex flex-column flex-md-row align-items-center justify-content-center gap-4 gap-md-5">
-              <div className="d-flex align-items-center gap-4 gap-md-5">
-                <div className="bg-white bg-opacity-10 backdrop-blur p-3 p-md-4 rounded-3 border border-white border-opacity-25 shadow hover-scale">
-                  <div
-                    className="bg-white bg-opacity-90 rounded-2 d-flex align-items-center justify-content-center text-primary fw-bold fs-5"
-                    style={{ height: '3rem', width: '8rem' }}
-                  >
-                    WaterWise
-                  </div>
-                </div>
+           <div className="position-relative d-flex flex-column flex-md-row align-items-center justify-content-center gap-4 gap-md-5">
+  <div className="d-flex align-items-center gap-4 gap-md-5">
+    <div className="bg-white bg-opacity-10 backdrop-blur p-3 p-md-4 rounded-3 border border-white border-opacity-25 shadow hover-scale">
+      <div
+        className="bg-white bg-opacity-90 rounded-2 d-flex align-items-center justify-content-center"
+        style={{ height: '3rem', width: '8rem' }}
+      >
+        <img
+          src="./waterwiselogo.png"
+          alt="WaterWise logo"
+          style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
+        />
+      </div>
+    </div>
 
-                <div
-                  className="vr bg-white opacity-25 d-none d-md-block"
-                  style={{ height: '4rem' }}
-                ></div>
+    <div
+      className="vr bg-white opacity-25 d-none d-md-block"
+      style={{ height: '4rem' }}
+    ></div>
 
-                <div className="bg-white bg-opacity-10 backdrop-blur p-3 p-md-4 rounded-3 border border-white border-opacity-25 shadow hover-scale">
-                  <div
-                    className="bg-white bg-opacity-90 rounded-2 d-flex align-items-center justify-content-center text-primary fw-bold fs-5"
-                    style={{ height: '3rem', width: '8rem' }}
-                  >
-                    RandWater
-                  </div>
-                </div>
-              </div>
-            </div>
+    <div className="bg-white bg-opacity-10 backdrop-blur p-3 p-md-4 rounded-3 border border-white border-opacity-25 shadow hover-scale">
+      <div
+        className="bg-white bg-opacity-90 rounded-2 d-flex align-items-center justify-content-center"
+        style={{ height: '3rem', width: '8rem' }}
+      >
+        <img
+          src="./randwaterlogo.png"
+          alt="Rand Water logo"
+          style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
+        />
+      </div>
+    </div>
+  </div>
+</div>
           </div>
 
           {/* Tips banner */}
