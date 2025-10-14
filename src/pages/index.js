@@ -308,8 +308,8 @@ Drop-by-Drop Water Conservation Survey              </h1>
     src="/brandlogo.jpeg"
     className="rounded flex-shrink-0"
     style={{
-      width: '90px',
-      height: '90px',
+      width: '60px',
+      height: '60px',
     }}
     alt="Brandscapers Africa logo"
   />
