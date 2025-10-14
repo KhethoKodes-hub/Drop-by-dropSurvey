@@ -127,12 +127,12 @@ export default function Home() {
       <div
         className="bg-white bg-opacity-90 rounded-2 d-flex align-items-center justify-content-center"
         style={{ height: '3rem', width: '8rem' }}
-      >
-        <img
-          src="./waterwiselogo.png"
+      ><a href="https://waterwise.co.za/">
+      <img
+          src="./waterwise.svg"
           alt="WaterWise logo"
           style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
-        />
+        /></a>
       </div>
     </div>
 
@@ -145,12 +145,12 @@ export default function Home() {
       <div
         className="bg-white bg-opacity-90 rounded-2 d-flex align-items-center justify-content-center"
         style={{ height: '3rem', width: '8rem' }}
-      >
+      ><a href="https://www.randwater.co.za/">
         <img
-          src="./randwaterlogo.png"
+          src="./rand.svg"
           alt="Rand Water logo"
           style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
-        />
+        /></a>
       </div>
     </div>
   </div>
@@ -188,13 +188,13 @@ export default function Home() {
           <div className="p-4 p-md-5">
             <div className="text-center mb-5">
               <h1 className="display-5 fw-bold mb-3 gradient-text">
-                Drop by Drop Change
+                Drop by Drop 
               </h1>
               <p
                 className="text-secondary fw-semibold text-uppercase small mb-3"
                 style={{ letterSpacing: '2px' }}
               >
-                Digital Survey Platform
+                Water Conservation Digital Survey Platform
               </p>
               <div className="d-flex align-items-center justify-content-center gap-2 text-muted small">
                 <i className="bi bi-clock-history"></i>
@@ -305,7 +305,7 @@ export default function Home() {
                   Powered by
                 </span>
                 <div className="d-flex align-items-center gap-2 px-3 py-2 bg-white border rounded-2 shadow-sm hover-shadow">
-  <img
+  <a href="https://www.brandscapersafrica.com/"><img
     src="/brandscaperlogo.png"
     className="rounded flex-shrink-0"
     style={{
@@ -316,7 +316,7 @@ export default function Home() {
   />
   <span className="fw-bold text-dark">
     Brandscapers Africa
-  </span>
+  </span></a>
 </div>
               </div>
             </div>
