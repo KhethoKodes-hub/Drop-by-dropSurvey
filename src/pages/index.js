@@ -305,11 +305,11 @@ Drop-by-Drop Water Conservation Survey              </h1>
                 </span>
                 <div className="d-flex align-items-center gap-2 px-3 py-2 bg-white border rounded-2 shadow-sm hover-shadow">
   <a href="https://www.brandscapersafrica.com/"><img
-    src="/brandscaperlogo.png"
+    src="/brandlogo.jpeg"
     className="rounded flex-shrink-0"
     style={{
-      width: '24px',
-      height: '24px',
+      width: '90px',
+      height: '90px',
     }}
     alt="Brandscapers Africa logo"
   />
