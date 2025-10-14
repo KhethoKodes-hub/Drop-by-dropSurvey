@@ -297,7 +297,7 @@ Drop-by-Drop Water Conservation Survey              </h1>
           >
             <div className="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
               <div className="small text-muted">
-                © 2025 Water Conservation Initiative
+                © 2025 Drop-by-Drop Water Conservation Initiative
               </div>
               <div className="d-flex align-items-center gap-3">
                 <span className="small text-secondary fw-medium">
