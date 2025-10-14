@@ -1,19 +1,23 @@
-/* --- Global Form Styles with Water Theme --- */
-
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
-body {
+/* --- Global Form Styles with Water Theme ---  body {
   background: linear-gradient(135deg, 
     #0a2463 0%, 
     #1e3a8a 20%, 
     #1e88e5 40%, 
     #10b981 60%, 
     #fbbf24 80%, 
-    #3b82f6 100%);
+    #3b82f6 100%);*/
+
+
+
+
+body {
+  background: linear-gradient(135deg, 
+    #0a5a63 0%, 
+    #1e3a8a 20%, 
+    #1e88e5 40%, 
+    #1059b9 60%, 
+    #52c1da 80%, 
+    #f2f5fa 100%);
   background-size: 400% 400%;
   animation: oceanWave 20s ease infinite;
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
@@ -195,26 +199,43 @@ body::before {
 }
 
 /* Back button styling */
+/* Back button styling */
 .btn-back {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  border: none;
+  background: white;
+  border: 2px solid #3b82f6;
   border-radius: 50px;
   padding: 12px 24px;
-  color: white;
+  color: #3b82f6;
   font-weight: 600;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+.text-decoration-none{
+  background: white;
+  border: 2px solid #3b82f6;
+  border-radius: 50px;
+  padding: 12px 24px;
+  color: #3b82f6;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
   transition: all 0.3s ease;
   margin-bottom: 20px;
 }
 
 .btn-back:hover {
   transform: translateX(-3px);
-  box-shadow: 0 6px 25px rgba(99, 102, 241, 0.6);
-  color: white;
+  box-shadow: 0 6px 25px rgba(59, 130, 246, 0.6);
+  background: #f8fafc;
+  color: #1e88e5;
 }
 
 /* Form labels - STABLE */
