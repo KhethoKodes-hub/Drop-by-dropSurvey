@@ -188,7 +188,7 @@ export default function Home() {
           <div className="p-4 p-md-5">
             <div className="text-center mb-5">
               <h1 className="display-5 fw-bold mb-3 gradient-text">
-Drop by Drop Water Conservation Survey              </h1>
+Drop-by-Drop Water Conservation Survey              </h1>
               <p
                 className="text-secondary fw-semibold text-uppercase small mb-3"
                 style={{ letterSpacing: '2px' }}
@@ -207,7 +207,7 @@ Drop by Drop Water Conservation Survey              </h1>
                 className="d-block small fw-bold text-secondary mb-3 text-uppercase"
                 style={{ letterSpacing: '1px' }}
               >
-                Select Township Location
+                Select Township 
               </label>
 
               <div className="d-grid gap-3">
