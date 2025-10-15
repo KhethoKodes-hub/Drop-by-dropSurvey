@@ -23,7 +23,7 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
-  // Add each township’s link path here
+  // Add each township's link path here
   const locations = [
     { name: 'Soweto', households: '',  link: '/soweto' },
     { name: 'Alexandra', households: '',  link: '/alexandra' },
@@ -48,6 +48,16 @@ export default function Home() {
             'linear-gradient(to bottom right, #f8f9fa 0%, #e7f3ff 50%, #e0f7fa 100%)',
         }}
       >
+        {/* Small Cool Admin Lock Icon */}
+        <Link href="/admin" className="position-fixed top-0 end-0 m-3 m-md-4 text-decoration-none z-3">
+          <div 
+            className="bg-white bg-opacity-90 p-2 rounded-circle shadow-lg border border-primary border-opacity-25 admin-lock-icon"
+            title="Admin Login"
+          >
+            <i className="bi bi-shield-lock text-primary"></i>
+          </div>
+        </Link>
+
         {/* Animated background blobs */}
         <div
           className="position-absolute top-0 start-0 w-100 h-100 overflow-hidden"
@@ -373,214 +383,272 @@ Drop-by-Drop Water Conservation Survey              </h1>
             background: linear-gradient(90deg, #1e3a8a, #1e40af, #0891b2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
           }
-            /* Add these media queries at the end of your existing CSS */
+          .hover-scale:hover {
+            transform: scale(1.05);
+          }
 
-/* Tablet devices (768px and below) */
-@media (max-width: 768px) {
-  .p-md-5 {
-    padding: 1.5rem !important;
-  }
-  
-  .display-5 {
-    font-size: 2rem !important;
-  }
-  
-  .fs-6 {
-    font-size: 0.9rem !important;
-  }
-  
-  /* Header adjustments */
-  .position-relative.p-3.p-md-4 {
-    padding: 2rem 1rem !important;
-  }
-  
-  /* Logo container adjustments */
-  .d-flex.align-items-center.gap-4.gap-md-5 {
-    gap: 2rem !important;
-  }
-  
-  /* Tips banner text */
-  .text-white.fs-6.fw-medium {
-    font-size: 0.9rem !important;
-  }
-  
-  /* Location cards */
-  .location-card {
-    padding: 1.5rem !important;
-  }
-  
-  .location-icon {
-    padding: 0.75rem !important;
-  }
-  
-  .location-icon .fs-4 {
-    font-size: 1.25rem !important;
-  }
-}
+          /* Small Cool Lock Icon Styles */
+          .admin-lock-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+          }
 
-/* Mobile devices (576px and below) */
-@media (max-width: 576px) {
-  .p-3.p-md-5 {
-    padding: 1rem !important;
-  }
-  
-  .p-4.p-md-5 {
-    padding: 1.5rem 1rem !important;
-  }
-  
-  .display-5 {
-    font-size: 1.75rem !important;
-    line-height: 1.3 !important;
-  }
-  
-  /* Header section */
-  .position-relative.overflow-hidden {
-    padding: 2rem 1rem !important;
-  }
-  
-  /* Logo layout for mobile */
-  .d-flex.flex-column.flex-md-row {
-    flex-direction: column !important;
-  }
-  
-  .d-flex.align-items-center.gap-4.gap-md-5 {
-    flex-direction: column !important;
-    gap: 1.5rem !important;
-  }
-  
-  .vr.d-none.d-md-block {
-    display: none !important;
-  }
-  
-  /* Tips banner */
-  .position-relative.p-4.p-md-5 {
-    padding: 1.5rem 1rem !important;
-  }
-  
-  .d-flex.align-items-start.gap-3 {
-    gap: 1rem !important;
-  }
-  
-  /* Main content */
-  .text-center.mb-5 {
-    margin-bottom: 2rem !important;
-  }
-  
-  /* Location cards mobile layout */
-  .location-card .d-flex.align-items-center.gap-3 {
-    gap: 1rem !important;
-  }
-  
-  .location-icon {
-    min-width: 50px;
-  }
-  
-  .flex-grow-1 h3 {
-    font-size: 1.1rem !important;
-  }
-  
-  .flex-grow-1 .d-flex.align-items-center.gap-3 {
-    flex-direction: column;
-    align-items: flex-start !important;
-    gap: 0.5rem !important;
-  }
-  
-  /* Instruction box */
-  .d-flex.gap-3 {
-    gap: 1rem !important;
-  }
-  
-  /* Footer */
-  .d-flex.flex-column.flex-md-row {
-    text-align: center;
-  }
-  
-  .d-flex.align-items-center.gap-3 {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-}
+          .admin-lock-icon i {
+            font-size: 1rem;
+            transition: all 0.3s ease;
+          }
 
-/* Small mobile devices (400px and below) */
-@media (max-width: 400px) {
-  .display-5 {
-    font-size: 1.5rem !important;
-  }
-  
-  .p-4.p-md-5 {
-    padding: 1rem !important;
-  }
-  
-  /* Header logos */
-  .bg-white.bg-opacity-10 {
-    padding: 1rem !important;
-  }
-  
-  .bg-white.bg-opacity-90 {
-    height: 2.5rem !important;
-    width: 6rem !important;
-  }
-  
-  /* Location cards */
-  .location-card {
-    padding: 1rem !important;
-  }
-  
-  .location-card .d-flex.align-items-center.gap-3 {
-    gap: 0.75rem !important;
-  }
-  
-  .location-icon {
-    padding: 0.5rem !important;
-    min-width: 45px;
-  }
-  
-  .location-icon .fs-4 {
-    font-size: 1rem !important;
-  }
-  
-  /* Reduce blob sizes on very small screens */
-  .animate-blob {
-    width: 12rem !important;
-    height: 12rem !important;
-  }
-}
+          .admin-lock-icon:hover {
+            transform: scale(1.15);
+            background-color: #0d6efd !important;
+            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.4) !important;
+          }
 
-/* Landscape mode for mobile */
-@media (max-height: 600px) and (orientation: landscape) {
-  .min-vh-100 {
-    min-height: auto !important;
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
-  }
-  
-  .position-relative.bg-white.rounded-4 {
-    max-height: 95vh;
-    overflow-y: auto;
-  }
-}
+          .admin-lock-icon:hover i {
+            color: white !important;
+            transform: scale(1.1);
+          }
 
-/* High-resolution devices */
-@media (min-width: 1400px) {
-  .position-relative.bg-white.rounded-4 {
-    max-width: 1200px !important;
-  }
-}
+          .z-3 {
+            z-index: 1030;
+          }
 
-/* Print styles */
-@media print {
-  .animate-blob,
-  .animate-gradient {
-    animation: none !important;
-    display: none !important;
-  }
-  
-  .bg-white.bg-opacity-10 {
-    background: white !important;
-    color: black !important;
-  }
-}
+          /* Responsive adjustments */
+          @media (max-width: 576px) {
+            .admin-lock-icon {
+              width: 32px;
+              height: 32px;
+            }
+            
+            .admin-lock-icon i {
+              font-size: 0.9rem;
+            }
+          }
+
+          @media (min-width: 577px) and (max-width: 768px) {
+            .admin-lock-icon {
+              width: 34px;
+              height: 34px;
+            }
+            
+            .admin-lock-icon i {
+              font-size: 0.95rem;
+            }
+          }
+
+          /* Tablet devices (768px and below) */
+          @media (max-width: 768px) {
+            .p-md-5 {
+              padding: 1.5rem !important;
+            }
+            
+            .display-5 {
+              font-size: 2rem !important;
+            }
+            
+            .fs-6 {
+              font-size: 0.9rem !important;
+            }
+            
+            /* Header adjustments */
+            .position-relative.p-3.p-md-4 {
+              padding: 2rem 1rem !important;
+            }
+            
+            /* Logo container adjustments */
+            .d-flex.align-items-center.gap-4.gap-md-5 {
+              gap: 2rem !important;
+            }
+            
+            /* Tips banner text */
+            .text-white.fs-6.fw-medium {
+              font-size: 0.9rem !important;
+            }
+            
+            /* Location cards */
+            .location-card {
+              padding: 1.5rem !important;
+            }
+            
+            .location-icon {
+              padding: 0.75rem !important;
+            }
+            
+            .location-icon .fs-4 {
+              font-size: 1.25rem !important;
+            }
+          }
+
+          /* Mobile devices (576px and below) */
+          @media (max-width: 576px) {
+            .p-3.p-md-5 {
+              padding: 1rem !important;
+            }
+            
+            .p-4.p-md-5 {
+              padding: 1.5rem 1rem !important;
+            }
+            
+            .display-5 {
+              font-size: 1.75rem !important;
+              line-height: 1.3 !important;
+            }
+            
+            /* Header section */
+            .position-relative.overflow-hidden {
+              padding: 2rem 1rem !important;
+            }
+            
+            /* Logo layout for mobile */
+            .d-flex.flex-column.flex-md-row {
+              flex-direction: column !important;
+            }
+            
+            .d-flex.align-items-center.gap-4.gap-md-5 {
+              flex-direction: column !important;
+              gap: 1.5rem !important;
+            }
+            
+            .vr.d-none.d-md-block {
+              display: none !important;
+            }
+            
+            /* Tips banner */
+            .position-relative.p-4.p-md-5 {
+              padding: 1.5rem 1rem !important;
+            }
+            
+            .d-flex.align-items-start.gap-3 {
+              gap: 1rem !important;
+            }
+            
+            /* Main content */
+            .text-center.mb-5 {
+              margin-bottom: 2rem !important;
+            }
+            
+            /* Location cards mobile layout */
+            .location-card .d-flex.align-items-center.gap-3 {
+              gap: 1rem !important;
+            }
+            
+            .location-icon {
+              min-width: 50px;
+            }
+            
+            .flex-grow-1 h3 {
+              font-size: 1.1rem !important;
+            }
+            
+            .flex-grow-1 .d-flex.align-items-center.gap-3 {
+              flex-direction: column;
+              align-items: flex-start !important;
+              gap: 0.5rem !important;
+            }
+            
+            /* Instruction box */
+            .d-flex.gap-3 {
+              gap: 1rem !important;
+            }
+            
+            /* Footer */
+            .d-flex.flex-column.flex-md-row {
+              text-align: center;
+            }
+            
+            .d-flex.align-items-center.gap-3 {
+              justify-content: center;
+              flex-wrap: wrap;
+            }
+          }
+
+          /* Small mobile devices (400px and below) */
+          @media (max-width: 400px) {
+            .display-5 {
+              font-size: 1.5rem !important;
+            }
+            
+            .p-4.p-md-5 {
+              padding: 1rem !important;
+            }
+            
+            /* Header logos */
+            .bg-white.bg-opacity-10 {
+              padding: 1rem !important;
+            }
+            
+            .bg-white.bg-opacity-90 {
+              height: 2.5rem !important;
+              width: 6rem !important;
+            }
+            
+            /* Location cards */
+            .location-card {
+              padding: 1rem !important;
+            }
+            
+            .location-card .d-flex.align-items-center.gap-3 {
+              gap: 0.75rem !important;
+            }
+            
+            .location-icon {
+              padding: 0.5rem !important;
+              min-width: 45px;
+            }
+            
+            .location-icon .fs-4 {
+              font-size: 1rem !important;
+            }
+            
+            /* Reduce blob sizes on very small screens */
+            .animate-blob {
+              width: 12rem !important;
+              height: 12rem !important;
+            }
+          }
+
+          /* Landscape mode for mobile */
+          @media (max-height: 600px) and (orientation: landscape) {
+            .min-vh-100 {
+              min-height: auto !important;
+              padding-top: 1rem !important;
+              padding-bottom: 1rem !important;
+            }
+            
+            .position-relative.bg-white.rounded-4 {
+              max-height: 95vh;
+              overflow-y: auto;
+            }
+          }
+
+          /* High-resolution devices */
+          @media (min-width: 1400px) {
+            .position-relative.bg-white.rounded-4 {
+              max-width: 1200px !important;
+            }
+          }
+
+          /* Print styles */
+          @media print {
+            .animate-blob,
+            .animate-gradient {
+              animation: none !important;
+              display: none !important;
+            }
+            
+            .bg-white.bg-opacity-10 {
+              background: white !important;
+              color: black !important;
+            }
+          }
         `}</style>
       </div>
     </>
