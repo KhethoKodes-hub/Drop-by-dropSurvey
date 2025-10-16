@@ -14,6 +14,7 @@ export default function Home() {
 
   const [currentTip, setCurrentTip] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [showAdminTooltip, setShowAdminTooltip] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -48,15 +49,51 @@ export default function Home() {
             'linear-gradient(to bottom right, #f8f9fa 0%, #e7f3ff 50%, #e0f7fa 100%)',
         }}
       >
-        {/* Small Cool Admin Lock Icon */}
-        <Link href="/admin" className="position-fixed top-0 end-0 m-3 m-md-4 text-decoration-none z-3">
-          <div 
-            className="bg-white bg-opacity-90 p-2 rounded-circle shadow-lg border border-primary border-opacity-25 admin-lock-icon"
-            title="Admin Login"
-          >
-            <i className="bi bi-shield-lock text-primary"></i>
-          </div>
-        </Link>
+        {/* Discreet Admin Access Icon */}
+        <div 
+          className="position-fixed top-0 end-0 m-3 m-md-4 z-3"
+          onMouseEnter={() => setShowAdminTooltip(true)}
+          onMouseLeave={() => setShowAdminTooltip(false)}
+          style={{ zIndex: 1030 }}
+        >
+          <Link href="/admin" className="text-decoration-none">
+            <div 
+              className="bg-white bg-opacity-60 p-2 rounded-circle shadow-sm border border-secondary border-opacity-25 admin-access-icon"
+              style={{
+                width: '40px',
+                height: '40px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'all 0.3s ease',
+                backdropFilter: 'blur(10px)',
+                cursor: 'pointer'
+              }}
+            >
+              <i className="bi bi-shield-lock text-muted fs-6"></i>
+            </div>
+          </Link>
+          
+          {/* Tooltip */}
+          {showAdminTooltip && (
+            <div 
+              className="position-absolute end-100 top-50 translate-middle-y me-2 bg-dark bg-opacity-90 text-white p-2 rounded small shadow"
+              style={{
+                width: '160px',
+                fontSize: '0.75rem',
+                whiteSpace: 'normal'
+              }}
+            >
+              <div className="text-warning fw-bold mb-1">
+                <i className="bi bi-exclamation-triangle-fill me-1"></i>
+                ADMIN ACCESS
+              </div>
+              <div className="text-white-80">
+                Authorized personnel only. Unauthorized access is prohibited.
+              </div>
+            </div>
+          )}
+        </div>
 
         {/* Animated background blobs */}
         <div
@@ -389,58 +426,54 @@ Drop-by-Drop Water Conservation Survey              </h1>
             transform: scale(1.05);
           }
 
-          /* Small Cool Lock Icon Styles */
-          .admin-lock-icon {
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+          /* Discreet Admin Access Icon Styles */
+          .admin-access-icon {
+            transition: all 0.3s ease !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
           }
 
-          .admin-lock-icon i {
-            font-size: 1rem;
-            transition: all 0.3s ease;
+          .admin-access-icon:hover {
+            transform: scale(1.1) !important;
+            background-color: #f8f9fa !important;
+            border-color: #6c757d !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
           }
 
-          .admin-lock-icon:hover {
-            transform: scale(1.15);
-            background-color: #0d6efd !important;
-            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.4) !important;
-          }
-
-          .admin-lock-icon:hover i {
-            color: white !important;
-            transform: scale(1.1);
+          .admin-access-icon:hover i {
+            color: #495057 !important;
           }
 
           .z-3 {
             z-index: 1030;
           }
 
-          /* Responsive adjustments */
+          /* Responsive adjustments for admin icon */
           @media (max-width: 576px) {
-            .admin-lock-icon {
-              width: 32px;
-              height: 32px;
+            .position-fixed.top-0.end-0 {
+              top: 0.5rem !important;
+              right: 0.5rem !important;
             }
             
-            .admin-lock-icon i {
-              font-size: 0.9rem;
+            .admin-access-icon {
+              width: 32px !important;
+              height: 32px !important;
+              padding: 0.5rem !important;
+            }
+            
+            .admin-access-icon i {
+              font-size: 0.8rem !important;
             }
           }
 
           @media (min-width: 577px) and (max-width: 768px) {
-            .admin-lock-icon {
-              width: 34px;
-              height: 34px;
+            .admin-access-icon {
+              width: 36px !important;
+              height: 36px !important;
             }
             
-            .admin-lock-icon i {
-              font-size: 0.95rem;
+            .admin-access-icon i {
+              font-size: 0.9rem !important;
             }
           }
 
@@ -647,6 +680,10 @@ Drop-by-Drop Water Conservation Survey              </h1>
             .bg-white.bg-opacity-10 {
               background: white !important;
               color: black !important;
+            }
+            
+            .admin-access-icon {
+              display: none !important;
             }
           }
         `}</style>
