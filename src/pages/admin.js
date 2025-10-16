@@ -1745,7 +1745,7 @@ export default function Admin() {
         <div className="admin-footer">
           <div className="footer-content">
             <span className="footer-text">
-              © {new Date().getFullYear()} Drop-By-Drop Water Conservation Initiative
+              © {new Date().getFullYear()} Drop-By-Drop Water Conservation Survey
             </span>
             <a href="https://brandscapersafrica.com" target="_blank" rel="noopener noreferrer" className="footer-brand">
               <img 
